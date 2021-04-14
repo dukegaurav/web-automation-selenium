@@ -17,13 +17,12 @@ const result = async (number) => {
     let button = await driver.wait(until.elementLocated(by.xpath('//button[. = "4G Data Voucher"]'), 10000));
     await button.click();
 
-    const plan = await (await driver.findElement(by.xpath('(//div[@class="css-7h7wp6"])[1]'))).getText();
+    const plan = await (await driver.findElement(by.xpath('(//div[@class="css-7h7wp6"])[2]'))).getText();
 
     //driver.quit();
-    if (plan === '`101') {
+    if (plan === '`101' || plan === '`51') {
         return "Number is active";
     }
-
     else {
         return "Number deactivated";
     }
